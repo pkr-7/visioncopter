@@ -1,31 +1,30 @@
 # advancecopter
 
 
-## Copter project
+## Copter project using advance navigation sensors and algorithms 
 
 
 ### Sensors
 
-sensors | role | status | result | conclusion
------|----------|----------------|----------------------|-----------------------
-m8n | posvel | tested | working | conclusion
-rplidar a1 | slam/proximity | tested | working | conclusion
-realsense d415 | slam/proximity | tested | working | conclusion
+sensors | role | language | status | result | conclusion
+-----|----------|----------|----------------|----------------------|-----------------------
+m8n | posvel  |cpp | tested | working | conclusion
+rplidar a1 | slam/proximity | ROS | tested | working | conclusion
+realsense d415 | slam/proximity | Python | tested | working | conclusion
 
 
 
 
 # Hardware
 
-![alt text](https://github.com/jadonk/beaglebone-blue/blob/master/docs/BeagleBone_Blue_balloons.png "BeagleBone Blue")
+![alt text](https://github.com/pkr-7/advancecopter/blob/main/IMG_20220527_155558.jpg "BeagleBone Blue")
 
 
-## Prepare BeagleBone Blue
-1. Update software: `sudo apt update && sudo apt upgrade -y`
-2. Install software: `sudo apt install -y bb-cape-overlays cpufrequtils`
+## Launch Scripts
+1. rplidar a1(ROS): `roslaunch rplidar_ros rplidar.launch`, `roslaunch hector_slam_launch tutorial.launch` 
+2. realsense d415: `python3 d4xx_to_mavlink.py`
 
 
 
 
-## Prebuild ArduPilot 
-1. Download ready compiled ArduPilot file from http://bbbmini.org/download/blue/
+## Test video
