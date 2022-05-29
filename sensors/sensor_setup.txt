@@ -1,0 +1,73 @@
+
+
+
+
+OpenTX Companion transmitter support software
+https://www.open-tx.org/
+
+
+SDCard content
+https://downloads.open-tx.org/2.3/release/sdcard/opentx-tlite/
+
+
+
+MULTI-Module Firmware Downloads
+http://downloads.multi-module.org/
+
+
+
+
+
+Flash/Configure BLHeli_S ESC
+https://oscarliang.com/flash-blheli-s-esc-firmware-fc-pass-through/
+
+
+Download Software
+https://github.com/bitdump/BLHeli
+
+
+
+FPort Receivers
+F7/H7 based autopilots can directly connect to the TX pin of any UART and use this configuration:
+
+    SERIALx_PROTOCOL =23
+
+    SERIALx_OPTIONS = 7 (invert TX/RX,Half Duplex)
+
+    RSSI_TYPE =3
+
+
+
+    OR to the RX pin:
+
+
+    SERIALx_PROTOCOL =23
+
+    SERIALx_OPTIONS = 15 (invert TX/RX,Half Duplex, SWAP TX/RX pins)
+
+    RSSI_TYPE =3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

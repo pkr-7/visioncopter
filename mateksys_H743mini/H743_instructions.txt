@@ -1,0 +1,66 @@
+
+
+
+http://www.mateksys.com/?portfolio=h743-mini
+
+
+
+Flashing BF/INAV/Ardu firmware with STM32CubeProgrammer
+
+http://www.mateksys.com/?p=6905
+
+
+
+
+
+Check out “Install DFU Drivers” in this page
+http://www.mateksys.com/?p=5159#tab-id-1
+
+
+
+
+ImpulseRC Driver Fixer
+https://impulserc.com/pages/downloads
+
+
+ArduPilot pre-build binaries
+https://firmware.ardupilot.org/Copter/stable-4.1.2/MatekH743/
+
+
+
+Flashing BF/INAV/Ardu firmware with STM32CubeProgrammer
+
+https://www.st.com/en/development-tools/stm32cubeprog.html
+
+You may download Windows version from here  en.stm32cubeprog_v2-3-0.zip
+
+————————————————————————————————-
+
+Make sure DFU driver has been installed. Check out “Install DFU Drivers” in this page
+
+Connect the FC USB to computer while holding the boot button in.
+
+    Select USB
+    USB1 and click Refresh
+    Connect
+    select “Erasing & Programming”
+    Click “Full chip erase”
+    Browse the hex or bin file from your computer, if flashing ardupilot, use “ardu*_with_bl.hex”.
+    Click “Start Programming”
+    After programming,  unplug USB and plug USB back in. FC will boot and run in normal COM mode.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
