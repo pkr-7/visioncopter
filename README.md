@@ -9,7 +9,8 @@
 sensors | role | language | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
 m8n | posvel  |cpp | tested | working | conclusion
-rplidar a1 | slam/proximity | ROS | tested | working | conclusion
+rplidar a1 | hector slam | ROS | tested | working | conclusion
+rplidar a1 | cartographer slam/proximity | ROS | tested | not working | conclusion
 realsense d415 | slam/proximity | Python | tested | working | conclusion
 
 
