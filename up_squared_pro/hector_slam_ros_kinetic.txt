@@ -1,0 +1,206 @@
+***********************************************************************************************************************************************************************
+
+Installing ROS
+
+***********************************************************************************************************************************************************************
+
+
+
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+
+sudo apt install curl # if you haven't already installed curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
+
+
+sudo apt-get update
+
+
+
+sudo apt-get install ros-kinetic-desktop-full
+
+
+
+
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+
+
+
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+
+
+
+sudo apt install python-rosdep
+
+
+sudo rosdep init
+rosdep update
+
+
+***********************************************************************************************************************************************************************
+
+Installing MAVROS
+
+***********************************************************************************************************************************************************************
+
+
+
+sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
+
+
+wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
+
+chmod a+x install_geographiclib_datasets.sh
+
+sudo ./install_geographiclib_datasets.sh
+
+
+
+
+
+sudo apt-get install ros-kinetic-rqt ros-kinetic-rqt-common-plugins ros-kinetic-rqt-robot-plugins
+
+
+
+
+
+
+
+***********************************************************************************************************************************************************************
+
+ROS and Hector SLAM for Non-GPS Navigation
+
+***********************************************************************************************************************************************************************
+
+
+plug the RPLidarA2 into the companion computer
+
+
+ls -l /dev/tty*
+
+
+sudo usermod -a -G dialout $USER
+
+
+
+
+
+cd $HOME
+mkdir -p catkin_ws/src
+cd catkin_ws
+catkin_init_workspace
+
+
+
+
+cd $HOME/catkin_ws/src
+git clone https://github.com/Slamtec/rplidar_ros.git
+git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git
+
+
+
+================================
+nano $HOME/catkin_ws/src/hector_slam/hector_mapping/launch/mapping_default.launch
+
+
+<arg name="base_frame" default="base_link"/>
+<arg name="odom_frame" default="base_link"/>
+
+<node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100" />
+
+
+
+
+
+================================
+nano $HOME/catkin_ws/src/hector_slam/hector_imu_attitude_to_tf/launch/example.launch
+
+
+<remap from="imu_topic" to="/mavros/imu/data" />
+
+
+
+
+================================
+nano $HOME/catkin_ws/src/hector_slam/hector_slam_launch/launch/tutorial.launch
+
+
+<param name="/use_sim_time" value="false"/>
+
+
+<include file="$(find hector_imu_attitude_to_tf)/launch/example.launch"/>
+
+
+
+
+
+cd $HOME/catkin_ws
+
+catkin build  ///////////////  sudo rm CMakeLists.txt  /////////  catkin_make
+
+source devel/setup.bash
+
+
+
+
+
+
+***********************************************************************************************************************************************************************
+
+Start Hector SLAM
+
+***********************************************************************************************************************************************************************
+
+
+cd catkin_ws
+
+source devel/setup.bash
+
+
+###############################################################
+
+
+
+roscore
+
+
+###############################################################
+
+
+
+roslaunch rplidar_ros rplidar.launch
+
+
+###############################################################
+
+
+
+roslaunch hector_slam_launch tutorial.launch
+
+
+###############################################################
+
+
+roslaunch mavros apm.launch fcu_url:=udp://:14855@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

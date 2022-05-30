@@ -1,0 +1,238 @@
+
+
+name = pranjal
+
+server name = up2pro
+
+username = pkr
+
+pass = ubuntu
+
+ip = 192.168.101.7
+
+192.168.137.122 (laptop hotspot)
+
+
+sudo poweroff
+
+**************************************************************************************************************************
+
+
+    Open a terminal and run:
+
+sudo apt update
+
+sudo apt install openssh-server
+
+sudo ufw allow ssh
+
+
+**************************************************************************************************************************
+
+
+    Check SSH server status. You should see something like Active: active (running):
+
+sudo systemctl status ssh
+
+
+**************************************************************************************************************************
+
+
+    Find out the ip-address of the UP2 by typing this command on the console (look for the number next to inet, which is 192.168.1.12 in this case):
+
+up2@up2:~$ ifconfig
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 234558  bytes 12730563 (12.7 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 234558  bytes 12730563 (12.7 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlxe0b94d193b9e: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.12  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::e1c2:9ae5:f488:e3c1  prefixlen 64  scopeid 0x20<link>
+        ether e0:b9:4d:19:3b:9e  txqueuelen 1000  (Ethernet)
+        RX packets 6078  bytes 804670 (804.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 900  bytes 112286 (112.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+**************************************************************************************************************************
+
+
+With this ip address you can now ssh into the UP2 from the host machine:
+
+ssh up2@ip-address
+
+
+**************************************************************************************************************************
+
+
+    Once you log in, clone the companion repository:
+
+sudo apt install git
+
+
+cd ~
+mkdir GitHub
+pushd GitHub
+git clone https://github.com/ardupilot/companion
+
+
+
+
+
+
+
+
+
+
+
+**************************************************************************************************************************
+**************************************************************************************************************************
+**************************************************************************************************************************
+
+
+
+
+
+
+OS: Ubuntu 18.04 (highly recommended as this release is the most up-to-date with the required libraries).
+Python 3.6 and above, which is also the standard for Ubuntu 18.04. Check ther version with 
+
+$ python3 -V                 , you should see Python 3.6.9 or higher.
+
+
+sudo apt-get install python3.6.9
+
+
+
+**************************************************************************************************************************
+**************************************************************************************************************************
+
+
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
+
+
+
+
+git clone https://github.com/IntelRealSense/librealsense.git
+
+
+
+
+sudo apt-get install git libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev
+
+
+
+
+Distribution-specific packages:
+
+Ubuntu 18:
+
+sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
+
+
+
+
+Run Intel Realsense permissions script from librealsense root directory:
+
+./scripts/setup_udev_rules.sh
+
+
+
+
+* **Ubuntu 14/16/18/20 with LTS kernel**
+
+./scripts/patch-realsense-ubuntu-lts.sh
+
+
+
+**************************************************************************************************************************
+**************************************************************************************************************************
+
+
+# Update the PYTHONPATH environment variable to add the path to the pyrealsense2 library
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+cd ~/librealsense/wrappers/python/examples
+
+# You should see a stream of depth data coming from the D4xx camera.
+python3 python-tutorial-1-depth.py
+
+
+
+
+**************************************************************************************************************************
+**************************************************************************************************************************
+
+
+
+Install pip for Python3 (pip3) and other supporting packages:
+
+sudo apt-get install python3-pip
+pip3 install pyrealsense2
+pip3 install transformations                                   ERROR
+pip3 install dronekit
+pip3 install apscheduler
+pip3 install pyserial # For serial connection
+pip3 install opencv-python                                     ERROR
+
+sudo apt -y install python3-gst-1.0 gir1.2-gst-rtsp-server-1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-ugly libx264-dev
+
+# Only necessary if you installed the minimal version of Ubuntu
+sudo apt install python3-opencv
+
+
+
+
+cd /path/to/download # Or ROS workspace ~/catkin_ws/src
+
+cd catkin_ws/src/vision_to_mavros/scripts
+
+
+
+git clone https://github.com/thien94/vision_to_mavros.git
+cd vision_to_mavros/scripts
+chmod +x d4xx_to_mavlink.py
+chmod +x opencv_depth_filtering.py  # Useful to test the filtering options
+
+
+
+
+
+nano d4xx_to_mavlink.py
+
+python3 d4xx_to_mavlink.py
+
+
+
+
+nano opencv_depth_filtering.py
+
+python3 opencv_depth_filtering.py
+
+
+
+
+
+
+
+rtsp://192.168.101.7:8554/d4xx
+
+
+
+
+rtspsrc location=rtsp://192.168.101.7:8554/d4xx caps=“application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264” latency=100 ! queue ! rtph264depay ! avdec_h264 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink                                                
+
+
+
+
+
+
+
+
