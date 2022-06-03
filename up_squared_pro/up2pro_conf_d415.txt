@@ -10,8 +10,12 @@ pass = ubuntu
 
 ip = 192.168.101.7
 
-192.168.137.122 (laptop hotspot)
+192.168.137.137 (laptop hotspot)
 
+
+cd vision_to_mav/catkin_ws/src/vision_to_mavros/scripts
+
+python3 d4xx_to_mavlink.py
 
 sudo poweroff
 
