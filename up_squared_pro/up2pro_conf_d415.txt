@@ -1,16 +1,5 @@
 
 
-name = pranjal
-
-server name = up2pro
-
-username = pkr
-
-pass = ubuntu
-
-ip = 192.168.101.7
-
-192.168.137.137 (laptop hotspot)
 
 
 cd vision_to_mav/catkin_ws/src/vision_to_mavros/scripts
