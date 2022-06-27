@@ -225,12 +225,12 @@ python3 opencv_depth_filtering.py
 
 
 
-rtsp://192.168.101.7:8554/d4xx
+rtsp://192.168./d4xx
 
 
 
 
-rtspsrc location=rtsp://192.168.101.7:8554/d4xx caps=“application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264” latency=100 ! queue ! rtph264depay ! avdec_h264 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink                                                
+rtspsrc location=rtsp://192.168:8554/d4xx caps=“application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264” latency=100 ! queue ! rtph264depay ! avdec_h264 ! videoconvert ! video/x-raw,format=BGRA ! appsink name=outsink                                                
 
 
 
