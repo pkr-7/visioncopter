@@ -222,7 +222,7 @@ python3 opencv_depth_filtering.py
 
 
 
-
+////screen required
 
 
 rtsp://192.168./d4xx
