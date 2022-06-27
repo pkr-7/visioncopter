@@ -1,8 +1,8 @@
 
+ssh apsync@apsync
 
 
-
-cd vision_to_mav/catkin_ws/src/vision_to_mavros/scripts
+cd vision_to_mavros/scripts
 
 python3 d4xx_to_mavlink.py
 
