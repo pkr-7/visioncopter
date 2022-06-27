@@ -1,5 +1,5 @@
 
-ssh apsync@apsync
+ssh apsync@<ip-address>
 
 
 cd vision_to_mavros/scripts
