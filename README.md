@@ -7,38 +7,38 @@
 
 board | role | autopilot | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
-matekh743mini | flight  |Ardupilot | tested | working | good to go
-matekh743mini | flight  | Px4 | tested | not working | wait for bullseye
+matekh743mini | flight  |Ardupilot | tested | working | flight successful
+matekh743mini | flight  | Px4 | tested | not working | wait for stable
 
 
 ### Secondary computer
 
 board | role | os | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
-up2pro | slam  |ubuntu | tested | working | good to go
+up2pro | slam  |ubuntu | tested | working | flight successful
 
 
 ### Secondary Sensors
 
 sensors | role | language | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
-rplidar a1 | hector slam | ROS | tested | working | conclusion
-rplidar a1 | cartographer slam/proximity | ROS | tested | not working | conclusion
-realsense d415 | slam/proximity | Python | tested | working | conclusion
+rplidar a1 | hector slam | ROS | tested | working | good to go
+rplidar a1 | cartographer slam/proximity | ROS | tested | not working | os related
+realsense d415 | slam/proximity | Python | tested | working | flight successful
 
 ### Primary Sensors
 
 sensors | role | autopilot | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
 matek m9n can | ap_periph  |Ardupilot | tested | working | conclusion
-r1f | receiver | Ardupilot | tested | working | conclusion
-sik | radio | Ardupilot | tested | not working | conclusion
+r1f | receiver | Ardupilot | tested | working | flight successful
+sik | radio | Ardupilot | tested | not working | flight successful
 PMW3901 & Lidar VL53L0X | opticalflow | Ardupilot | tested | working | conclusion
 
 
 # Hardware
 
-![alt text](https://github.com/pkr-7/advancecopter/blob/main/IMG_20220527_155558.jpg "BeagleBone Blue")
+![alt text](https://github.com/pkr-7/advancecopter/blob/main/IMG_20220527_155558.jpg "Copter")
 
 
 ## Launch Scripts
