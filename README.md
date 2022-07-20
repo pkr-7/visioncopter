@@ -30,10 +30,10 @@ realsense d415 | slam/proximity | Python | tested | working | flight successful
 
 sensors | role | autopilot | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
-matek m9n can | ap_periph  |Ardupilot | tested | working | conclusion
+matek m9n can | ap_periph  |Ardupilot | tested | working | good to go
 r1f | receiver | Ardupilot | tested | working | flight successful
 sik | radio | Ardupilot | tested | working | flight successful
-PMW3901 & Lidar VL53L0X | opticalflow | Ardupilot | tested | working | conclusion
+PMW3901 & Lidar VL53L0X | opticalflow | Ardupilot | tested | working | good to go
 
 
 # Hardware
