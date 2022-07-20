@@ -38,7 +38,7 @@ PMW3901 & Lidar VL53L0X | opticalflow | Ardupilot | tested | working | conclusio
 
 # Hardware
 
-![alt text](https://github.com/pkr-7/advancecopter/IMG_20220527_155558.jpg "Copter")
+![alt text](https://github.com/pkr-7/advancecopter/blob/main/IMG_20220527_155558.jpg "Copter")
 
 
 ## Launch Scripts
