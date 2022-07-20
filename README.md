@@ -8,7 +8,7 @@
 board | role | autopilot | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
 matekh743mini | flight  |Ardupilot | tested | working | good to go
-           |            | Px4 | tested | not working | wait for bullseye
+matekh743mini | flight  | Px4 | tested | not working | wait for bullseye
 
 
 ### Secondary computer
@@ -22,7 +22,6 @@ up2pro | slam  |ubuntu | tested | working | good to go
 
 sensors | role | language | status | result | conclusion
 -----|----------|----------|----------------|----------------------|-----------------------
-
 rplidar a1 | hector slam | ROS | tested | working | conclusion
 rplidar a1 | cartographer slam/proximity | ROS | tested | not working | conclusion
 realsense d415 | slam/proximity | Python | tested | working | conclusion
